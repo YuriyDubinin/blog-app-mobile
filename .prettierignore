@@ -1,0 +1,7 @@
+# Ignore artifacts:
+node_modules/
+dist/
+build/
+web/
+src/libs/
+sitemap.xml
