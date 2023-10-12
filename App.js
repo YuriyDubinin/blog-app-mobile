@@ -5,8 +5,7 @@ import * as Font from 'expo-font';
 
 import {gStyle} from './styles/style';
 
-import Main from './pages/Main';
-import Contacts from './pages/Contacts';
+import Router from './components/Router';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -44,7 +43,7 @@ export default function App() {
 
     return (
         <View style={gStyle.main} onLayout={onLayoutRootView}>
-            <Main />
+            <Router />
         </View>
     );
 }
