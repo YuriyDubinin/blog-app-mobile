@@ -42,7 +42,7 @@ export default function App() {
     }
 
     return (
-        <View style={gStyle.main} onLayout={onLayoutRootView}>
+        <View style={gStyle.mainWrapper} onLayout={onLayoutRootView}>
             <Router />
         </View>
     );

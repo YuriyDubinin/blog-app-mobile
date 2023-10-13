@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {StyleSheet, View, Text, Image} from 'react-native';
 
 import {gStyle} from '../styles/style';
 
@@ -12,8 +12,31 @@ export default function FullInfo({route}) {
 
     return (
         <View style={gStyle.main}>
-            <Text style={gStyle.title}>{title}</Text>
-            <Text>{fullText}</Text>
+            <Image
+                source={{
+                    uri: route.params.img,
+                }}
+                style={gStyle.imgLg}
+            />
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.fullText}>{fullText}</Text>
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    title: {
+        fontFamily: 'mt-bold',
+        fontSize: 22,
+        textAlign: 'center',
+        marginTop: 10,
+        color: '#d3bfda',
+    },
+    fullText: {
+        fontFamily: 'mt-light',
+        fontSize: 16,
+        textAlign: 'center',
+        marginTop: 10,
+        color: '#d3bfda',
+    },
+});

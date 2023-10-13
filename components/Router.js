@@ -11,11 +11,33 @@ export default function Router() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Main" component={Main} options={{title: 'Main page'}} />
+                <Stack.Screen
+                    name="Main"
+                    component={Main}
+                    options={{
+                        title: 'Main page',
+                        headerStyle: {
+                            backgroundColor: '#0f030e',
+                        },
+                        headerTitleStyle: {
+                            fontWeight: 'light',
+                            color: '#d3bfda',
+                        },
+                    }}
+                />
                 <Stack.Screen
                     name="FullInfo"
                     component={FullInfo}
-                    options={{title: 'Contact page'}}
+                    options={{
+                        title: 'Contact page',
+                        headerStyle: {
+                            backgroundColor: '#0f030e',
+                        },
+                        headerTitleStyle: {
+                            fontWeight: 'light',
+                            color: '#d3bfda',
+                        },
+                    }}
                 />
             </Stack.Navigator>
         </NavigationContainer>
