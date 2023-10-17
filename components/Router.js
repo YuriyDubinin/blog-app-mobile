@@ -17,7 +17,8 @@ export default function Router() {
                     options={{
                         title: 'Fresh blogs',
                         headerStyle: {
-                            backgroundColor: '#eeeeee',
+                            backgroundColor: '#fff6f6',
+                            borderBottomWidth: 0.7
                         },
                         headerTitleStyle: {
                             fontWeight: 'light',
@@ -31,7 +32,8 @@ export default function Router() {
                     options={{
                         title: 'Blog page',
                         headerStyle: {
-                            backgroundColor: '#eeeeee',
+                            backgroundColor: '#fff6f6',
+                            borderBottomWidth: 0.7
                         },
                         headerTitleStyle: {
                             fontWeight: 'light',

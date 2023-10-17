@@ -3,7 +3,7 @@ import {StyleSheet, View, Text, Button, TouchableOpacity, FlatList, Image} from 
 
 import {gStyle} from '../styles/style';
 
-import {getBlogsList} from '../api/newsApi';
+import {getBlogsList, getPhotosList} from '../api/newsApi';
 
 export default function BlogsList({navigation}) {
     const [blogsList, setBlogslogsList] = useState([]);
@@ -12,16 +12,27 @@ export default function BlogsList({navigation}) {
         navigation.navigate('BlogPage', item);
     };
 
+    const reorganizeData = (blogsList, photosList) => {
+        const totalBlogsList = []
+        
+        for (let i = 0; i < 100; i++) {
+            totalBlogsList.push({
+                ...blogsList[i],
+                ...photosList[i]
+            })
+        }
+
+        setBlogslogsList(totalBlogsList);
+    }
+
     // obtaining all necessary data
     useEffect(() => {
-        getBlogsList()
-            .then((res) => {
-                setBlogslogsList(res.data.blogs);
+        Promise.all([getBlogsList(), getPhotosList()])
+            .then(([blogsList, photosList]) => {
+                reorganizeData(blogsList.data.blogs, photosList.data.photos);
             })
             .catch((err) => console.log('error: ', err));
     }, []);
-
-    console.log(blogsList);
 
     return (
         <View style={gStyle.main}>
@@ -35,7 +46,7 @@ export default function BlogsList({navigation}) {
                     >
                         <Image
                             source={{
-                                uri: item.photo_url,
+                                uri: item.url,
                             }}
                             style={gStyle.imgXs}
                         />
@@ -80,5 +91,6 @@ const styles = StyleSheet.create({
         padding: 5,
         backgroundColor: '#eeeeee',
         borderRadius: 8,
+        backgroundColor: '#fff6f6'
     },
 });

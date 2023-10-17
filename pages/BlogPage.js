@@ -5,13 +5,13 @@ import moment from 'moment';
 import {gStyle} from '../styles/style';
 
 export default function BlogPage({route}) {
-    const {title, content_text, photo_url, updated_at} = route.params;
+    const {title, content_text, url, updated_at} = route.params;
 
     return (
         <View style={gStyle.main}>
             <Image
                 source={{
-                    uri: photo_url,
+                    uri: url,
                 }}
                 style={gStyle.imgLg}
             />
