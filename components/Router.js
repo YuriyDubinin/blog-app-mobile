@@ -2,8 +2,8 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 
-import Main from '../pages/Main';
-import FullInfo from '../pages/FullInfo';
+import BlogsList from '../pages/BlogsList';
+import BlogPage from '../pages/BlogPage';
 
 const Stack = createStackNavigator();
 
@@ -12,30 +12,30 @@ export default function Router() {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen
-                    name="Main"
-                    component={Main}
+                    name="BlogsList"
+                    component={BlogsList}
                     options={{
-                        title: 'Main page',
+                        title: 'Fresh blogs',
                         headerStyle: {
-                            backgroundColor: '#0f030e',
+                            backgroundColor: '#eeeeee',
                         },
                         headerTitleStyle: {
                             fontWeight: 'light',
-                            color: '#d3bfda',
+                            color: '#3f3c3c',
                         },
                     }}
                 />
                 <Stack.Screen
-                    name="FullInfo"
-                    component={FullInfo}
+                    name="BlogPage"
+                    component={BlogPage}
                     options={{
-                        title: 'Contact page',
+                        title: 'Blog page',
                         headerStyle: {
-                            backgroundColor: '#0f030e',
+                            backgroundColor: '#eeeeee',
                         },
                         headerTitleStyle: {
                             fontWeight: 'light',
-                            color: '#d3bfda',
+                            color: '#3f3c3c',
                         },
                     }}
                 />

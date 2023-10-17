@@ -8,11 +8,11 @@ export const gStyle = StyleSheet.create({
     main: {
         flex: 1,
         padding: 20,
-        backgroundColor: '#0f030e',
+        backgroundColor: '#eeeeee',
     },
     title: {
         fontSize: 25,
-        color: '#d3bfda',
+        color: '#3f3c3c',
         fontFamily: 'mt-bold',
         textAlign: 'center',
         marginBottom: 20,
