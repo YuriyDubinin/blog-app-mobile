@@ -8,7 +8,7 @@ export const gStyle = StyleSheet.create({
     main: {
         flex: 1,
         padding: 20,
-        backgroundColor: '#fff6f6'
+        backgroundColor: '#fff6f6',
     },
     title: {
         fontSize: 25,

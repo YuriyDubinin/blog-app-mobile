@@ -9,12 +9,7 @@ export default function BlogPage({route}) {
 
     return (
         <View style={gStyle.main}>
-            <Image
-                source={{
-                    uri: url,
-                }}
-                style={gStyle.imgLg}
-            />
+            <Image source={{uri: url}} style={gStyle.imgLg} />
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.textBody}>{content_text}</Text>
             <Text style={styles.date}>{moment(updated_at).format('LLL')}</Text>

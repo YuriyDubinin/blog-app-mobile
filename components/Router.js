@@ -18,10 +18,10 @@ export default function Router() {
                         title: 'Fresh blogs',
                         headerStyle: {
                             backgroundColor: '#fff6f6',
-                            borderBottomWidth: 0.7
+                            borderBottomWidth: 0.7,
                         },
                         headerTitleStyle: {
-                            fontWeight: 'light',
+                            fontWeight: '200',
                             color: '#3f3c3c',
                         },
                     }}
@@ -33,10 +33,10 @@ export default function Router() {
                         title: 'Blog page',
                         headerStyle: {
                             backgroundColor: '#fff6f6',
-                            borderBottomWidth: 0.7
+                            borderBottomWidth: 0.7,
                         },
                         headerTitleStyle: {
-                            fontWeight: 'light',
+                            fontWeight: '200',
                             color: '#3f3c3c',
                         },
                     }}
