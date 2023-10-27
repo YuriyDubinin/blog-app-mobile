@@ -1,23 +1,17 @@
 import React, {useState, useEffect} from 'react';
-import {
-    StyleSheet,
-    View,
-    Text,
-    Button,
-    TouchableOpacity,
-    FlatList,
-    Image,
-    Modal,
-} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity, FlatList, Image, Modal} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
+import moment from 'moment';
 
 import {gStyle} from '../styles/style';
+
+import Form from './Form';
 
 import {getBlogsList, getPhotosList} from '../api/newsApi';
 
 export default function BlogsList({navigation}) {
     const [blogsList, setBlogslogsList] = useState([]);
-    const [isModalOpen, setIsModalOPen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const loadScene = (item) => {
         navigation.navigate('BlogPage', item);
@@ -36,6 +30,25 @@ export default function BlogsList({navigation}) {
         setBlogslogsList(totalBlogsList);
     };
 
+    const addArticle = (article) => {
+        const data = {
+            title: article?.title,
+            description: article?.description,
+            content_text: article?.fullText,
+            url: article?.img,
+            updated_at: moment(),
+            category: article?.category,
+        };
+
+        setBlogslogsList((list) => {
+            article.key = Math.random().toString();
+
+            return [data, ...list];
+        });
+
+        setIsModalOpen(false);
+    };
+
     // obtaining all necessary data
     useEffect(() => {
         Promise.all([getBlogsList(), getPhotosList()])
@@ -50,8 +63,8 @@ export default function BlogsList({navigation}) {
             <Ionicons
                 name="add-circle"
                 size={44}
-                style={styles.iconClose}
-                onPress={() => setIsModalOPen(true)}
+                style={styles.iconAdd}
+                onPress={() => setIsModalOpen(true)}
             />
             <FlatList
                 data={blogsList}
@@ -72,11 +85,12 @@ export default function BlogsList({navigation}) {
                 <Ionicons
                     name="close"
                     size={44}
-                    style={styles.iconAdd}
-                    onPress={() => setIsModalOPen(close)}
+                    style={styles.iconClose}
+                    onPress={() => setIsModalOpen(false)}
                 />
                 <View style={gStyle.main}>
                     <Text style={styles.title}>Add an article</Text>
+                    <Form addArticle={(article) => addArticle(article)} />
                 </View>
             </Modal>
         </View>
@@ -117,9 +131,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff6f6',
     },
     iconAdd: {
-        color: 'grey',
+        color: 'green',
+        textAlign: 'center',
+        marginBottom: 15,
     },
-    iconAdd: {
+    iconClose: {
         color: 'grey',
     },
 });
